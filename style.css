@@ -3,5 +3,64 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
+    color: antiquewhite;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #05171E;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #082029;
+    min-height: 128px;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #082029;
+    min-height: 128px;
+    width: 100%;
+}
+
+.wrapper {
+    max-width: 1440px;
+    width: 100%;
+}
+
+.flex_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex_footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text_centered {
+    text-align: center;
+}
+
+.header_logo {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}

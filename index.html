@@ -4,13 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
-    <link rel="icon" href="./assets/icons/favicon.png" type="image/png">
+    <link rel="icon" href="./assets/icons/favicon.png">
 
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/pokemonTemplate.css">
     
     <script src="./script.js"></script>
+    <script src="./scripts/getPokemonTemplate.js"></script>
 </head>
 <body onload="init()">
+
+    <nav>
+        <div class="wrapper flex_nav">
+            <div class="header_logo">
+              <img src="./assets/img/pokeball.png">
+              <h1>Pokedex</h1>
+            </div>
+          <input type="text">
+        </div>
+    </nav>
+
+    <main>
+        <div class="wrapper" id="content"></div>
+    </main>
+
+    <dialog id="pokemon_card">
+
+    </dialog>
+
+    <footer>
+        <div class="flex_footer">
+            <img src="./assets/img/pokeball.png">
+            <p>Developer Akademie</p>
+        </div>
+        <p class="text_centered">© 2026 Developer Akademie GmbH</p>
+    </footer>
     
 </body>
 </html>
