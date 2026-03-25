@@ -25,6 +25,7 @@ nav {
 main {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     flex-grow: 1;
     width: 100%;
 }
@@ -63,4 +64,22 @@ footer {
     display: flex;
     gap: 20px;
     align-items: center;
+}
+
+.btn {
+    width: 200px;
+    border: solid 1px blanchedalmond;
+    height: 32px;
+    margin: auto;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.bg_blue {
+    background: #082029;
 }
