@@ -13,6 +13,7 @@
     background-color: #082029;
     margin: 10px 10px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .bg_grass {
@@ -59,5 +60,4 @@ h1 {
 
 .pkm_img {
     width: 200px;
-    filter: drop-shadow(10px 10px 0,5);
 }

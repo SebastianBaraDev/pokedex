@@ -71,14 +71,51 @@ function getFrontPicture(pkmDataIndex) {
 
 console.log(pokemonData)
 
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
 //Dialog öffnen
+function openDialog() {
+    document.getElementById("pokemon_card").showModal(); 
+}
 //Dialog schließen
+function closeDialog() {
+    document.getElementById("pokemon_card").close(); 
+}
 //Event Bubbling on Dialog
 //Vorwärts durch Dialog navigieren
+function navigateDialogForward() {
+    //
+}
 //Rückwärts durch Dialog navigieren
+function navigateDialogBackward() {
+    //
+}
 //Load Main Content Dialog
+function renderMain() {
+        let main = document.getElementById("main");
+        main.innerHTML = "";
+    for (let i = 0; i < pokemonData.length; i++) {
+        main.innerHTML += getDialogMainTemplate(i);
+    }
+}
 //Load Stats Content Dialog
+function renderStats() {
+        let stats = document.getElementById("stats");
+        stats.innerHTML = "";
+    for (let i = 0; i < pokemonData.length; i++) {
+        stats.innerHTML += getDialogStatsTemplate(i);
+    }
+}
 //Load evo-chain Content Dialog
+function renderEvoChain() {
+        let evoChain = document.getElementById("evo_chain");
+        evoChain.innerHTML = "";
+    for (let i = 0; i < pokemonData.length; i++) {
+        evoChain.innerHTML += getDialogEvoChainTemplate(i);
+    }
+}
 //Search Function
 //Load type icons into Pkm Card
 

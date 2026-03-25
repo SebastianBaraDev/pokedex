@@ -1,6 +1,6 @@
 function getPokemonTemplate(pkmDataIndex) {
     return `
-    <div class="PokemonWidget">
+    <div class="PokemonWidget" onclick="openDialog()">
         <div class="cardHeadline">
             <h1>#${pokemonData[pkmDataIndex].id}  ${pokemonData[pkmDataIndex].name}</h1>
         </div>

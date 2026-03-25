@@ -83,3 +83,14 @@ footer {
 .bg_blue {
     background: #082029;
 }
+
+/* --- Dialog Styling --- */
+
+#pokemon_card {
+    background-color: #082029;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
