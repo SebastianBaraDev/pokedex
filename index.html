@@ -7,12 +7,13 @@
     <link rel="icon" href="./assets/icons/favicon.png">
 
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/font.css">
     <link rel="stylesheet" href="./styles/pokemonTemplate.css">
     
     <script src="./script.js"></script>
     <script src="./scripts/getPokemonTemplate.js"></script>
 </head>
-<body onload="init()">
+<body onload="init()" class="HideScrollbar">
 
     <nav>
         <div class="wrapper flex_nav">
@@ -30,26 +31,30 @@
     </main>
 
     <dialog id="pokemon_card">
-        <div class="header">
-            <h1>#ID   NAME</h1>
-            <img src="./assets/icons/close.png" onclick="closeDialog()" style="cursor: pointer;">
+        <div id="dialog_background">
+                
+        <header class="DialogHeader">
+            <h2 id="dialog_title">ygbndgn</h2>
+            <img src="./assets/icons/close.png" class="DialogExit" onclick="closeDialog()" onkeydown="tabindexCloseDialog(event)">
+        </header>
+
+        <section class="bg">
+            <div id="pkm_picture"></div>
+        </section>
+
+        <div class="DialogNav">
+            <img src="./assets/img/left_arrow.svg" onclick="navBackward()" onkeydown="tabindexNavLeft(event)">
+            <img src="./assets/img/right_arrow.svg" onclick="navForward()" onkeydown="tabindexNavRight(event)">
         </div>
 
-        <div class="bg">
-            <img src="" class="dialog_img">
         </div>
-
-        <div class="dialog_content">
-        </div>
-
     </dialog>
 
     <footer>
         <div class="flex_footer">
-            <img src="./assets/img/pokeball.png">
-            <p>Developer Akademie</p>
+            <img src="./assets/img/footer_logo.svg" class="FooterLogo">
+            <p class="FooterFont">&copy; 2023 Developer Akademie GmbH</p>
         </div>
-        <p class="text_centered">© 2026 Developer Akademie GmbH</p>
     </footer>
     
 </body>

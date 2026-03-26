@@ -77,19 +77,28 @@ console.log(pokemonData)
 
 //Dialog öffnen
 function openDialog() {
-    document.getElementById("pokemon_card").showModal(); 
+    let dialog = document.getElementById("pokemon_card");
+    dialog.showModal(); 
+
+    const bodyOverflow = document.getElementById("hide_scrollbar");
+    bodyOverflow.classList.add("HideScrollbar");
 }
 //Dialog schließen
 function closeDialog() {
-    document.getElementById("pokemon_card").close(); 
+    let dialog = document.getElementById("pokemon_card");
+    dialog.close();
+    
+    const bodyOverflow = document.getElementById("hide_scrollbar");
+    bodyOverflow.classList.remove("HideScrollbar");
 }
 //Event Bubbling on Dialog
+
 //Vorwärts durch Dialog navigieren
-function navigateDialogForward() {
+function navForward() {
     //
 }
 //Rückwärts durch Dialog navigieren
-function navigateDialogBackward() {
+function navBackward() {
     //
 }
 //Load Main Content Dialog

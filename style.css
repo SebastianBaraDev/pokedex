@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Figtree, sans-serif;
     color: antiquewhite;
 }
 
@@ -52,12 +52,13 @@ footer {
 
 .flex_footer {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     gap: 20px;
 }
 
-.text_centered {
-    text-align: center;
+.FooterLogo {
+    height: 32px;
 }
 
 .header_logo {
@@ -86,11 +87,50 @@ footer {
 
 /* --- Dialog Styling --- */
 
-#pokemon_card {
-    background-color: #082029;
+.HideScrollbar {
+    overflow: hidden;
 }
 
-.header {
+#dialog_background {
+    padding: 56px 64px;
+}
+
+.DialogHeader {
     display: flex;
     justify-content: space-between;
+}
+
+#pokemon_card {
+    background-color: #082029;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#dialog_title {
+    font-size: 24px;
+    font-weight: 700 bold;
+}
+
+.DialogExit:hover {
+    background-image: url(./assets/icons/exit_hover.png);
+    cursor: pointer;
+}
+
+#pkm_picture {
+
+}
+
+.DialogNav {
+    display: flex;
+    justify-content: space-between;
+    width: 260px;
+    margin: auto;
+}
+
+.DialogNav img:hover {
+    filter:  brightness(1.6);
+    cursor: pointer;
 }
