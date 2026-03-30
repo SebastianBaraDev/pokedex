@@ -71,11 +71,7 @@ function getFrontPicture(pkmDataIndex) {
 
 console.log(pokemonData)
 
-
-////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////
-
-//Dialog öffnen
+//Dialog Functions//
 function openDialog() {
     let dialog = document.getElementById("pokemon_card");
     dialog.showModal(); 
@@ -83,7 +79,7 @@ function openDialog() {
     const bodyOverflow = document.getElementById("hide_scrollbar");
     bodyOverflow.classList.add("HideScrollbar");
 }
-//Dialog schließen
+
 function closeDialog() {
     let dialog = document.getElementById("pokemon_card");
     dialog.close();
@@ -91,6 +87,9 @@ function closeDialog() {
     const bodyOverflow = document.getElementById("hide_scrollbar");
     bodyOverflow.classList.remove("HideScrollbar");
 }
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 //Event Bubbling on Dialog
 
 //Vorwärts durch Dialog navigieren
@@ -102,29 +101,24 @@ function navBackward() {
     //
 }
 //Load Main Content Dialog
-function renderMain() {
-        let main = document.getElementById("main");
-        main.innerHTML = "";
-    for (let i = 0; i < pokemonData.length; i++) {
-        main.innerHTML += getDialogMainTemplate(i);
-    }
+
+function renderPkmCardInfos(id,pkmDataIndex) {
+        let contentRef = document.getElementById("card_content");
+        let content = "";
+        switch (id) {
+            case "main":
+                content = getMainTemplate(pkmDataIndex);
+                break;
+            case "stats":
+                content = getStatsTemplate(pkmDataIndex);
+                break;
+            case "evo":
+                content = getEvoChainTemplate(pkmDataIndex);
+                break;
+        }
+        contentRef.innerHTML += content;
 }
-//Load Stats Content Dialog
-function renderStats() {
-        let stats = document.getElementById("stats");
-        stats.innerHTML = "";
-    for (let i = 0; i < pokemonData.length; i++) {
-        stats.innerHTML += getDialogStatsTemplate(i);
-    }
-}
-//Load evo-chain Content Dialog
-function renderEvoChain() {
-        let evoChain = document.getElementById("evo_chain");
-        evoChain.innerHTML = "";
-    for (let i = 0; i < pokemonData.length; i++) {
-        evoChain.innerHTML += getDialogEvoChainTemplate(i);
-    }
-}
+
 //Search Function
 //Load type icons into Pkm Card
 

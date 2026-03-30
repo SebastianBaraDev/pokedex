@@ -92,12 +92,7 @@ footer {
 }
 
 #dialog_background {
-    padding: 56px 64px;
-}
-
-.DialogHeader {
-    display: flex;
-    justify-content: space-between;
+    width: 312px;
 }
 
 #pokemon_card {
@@ -107,6 +102,16 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+#pokemon_card::backdrop {
+    background-color: rgba(0, 0, 0, 0.191);
+}
+
+.DialogHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
 }
 
 #dialog_title {
@@ -120,7 +125,34 @@ footer {
 }
 
 #pkm_picture {
+    width: 312px;
+    height: 180px;
+}
 
+.dialog_btn {
+    width: 80px;
+    border: solid 0 0 1px 0 blanchedalmond;
+    height: 32px;
+    background-color: #05171E;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.dialog_btn:hover {
+    color: red;
+}
+
+.card_menu {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+#card_content {
+    width: 300px;
+    height: 180px;
+    margin: auto;
 }
 
 .DialogNav {
@@ -128,6 +160,7 @@ footer {
     justify-content: space-between;
     width: 260px;
     margin: auto;
+    padding: 8px;
 }
 
 .DialogNav img:hover {

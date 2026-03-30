@@ -12,8 +12,9 @@
     
     <script src="./script.js"></script>
     <script src="./scripts/getPokemonTemplate.js"></script>
+    <script src="./scripts/dialog_templates.js"></script>
 </head>
-<body onload="init()" class="HideScrollbar">
+<body onload="init()" id="hide_scrollbar">
 
     <nav>
         <div class="wrapper flex_nav">
@@ -39,7 +40,17 @@
         </header>
 
         <section class="bg">
-            <div id="pkm_picture"></div>
+            <div id="pkm_picture"><!-- Render Pkm img here--></div>
+        </section>
+
+        <section class="card_menu">
+            <button class="dialog_btn" onclick="renderPkmCardInfos(main)">Main</button>
+            <button class="dialog_btn" onclick="renderPkmCardInfos(stats)">Stats</button>
+            <button class="dialog_btn" onclick="renderPkmCardInfos(evo)">Evo-Chain</button>
+        </section>
+
+        <section id="card_content">
+            <!-- Render Pkm Infos here-->
         </section>
 
         <div class="DialogNav">
