@@ -42,6 +42,7 @@ footer {
 .wrapper {
     max-width: 1440px;
     width: 100%;
+    margin: auto;
 }
 
 .flex_nav {
