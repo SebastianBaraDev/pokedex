@@ -71,6 +71,22 @@ function getFrontPicture(currentPokemon) {
     return sprites.other.home.front_default;
 }
 
+function getTypesTemplate(index) {
+    const types = pokemonData[index].types;
+    let html = "";
+
+    for (let i = 0; i < types.length; i++) {
+        const typeName = types[i].type.name;
+
+        html += `
+            <img src="assets/icons/${typeName}.ico"
+                 alt="${typeName}"
+                 class="type_icon">
+        `;
+    }
+    return html;
+}
+
 //Dialog Functions//
 function openDialog(index) {
     currentIndex = index;
@@ -104,7 +120,7 @@ function pushDialogHeadline(index) {
 
 function pushDialogImage(index) {
      const IMAGE_CONTAINER = document.getElementById("pkm_picture");
-     IMAGE_CONTAINER.innerHTML = `<img src="${pokemonData[index].sprites.other.home.front_default}" class="dialog_img">`;
+    IMAGE_CONTAINER.innerHTML = getTypeImages(index);
 }
 
 function navForward() {
@@ -146,6 +162,5 @@ function renderPkmCardInfos(id) {
 //Event Bubbling on Dialog
 
 //Search Function
-//Load type icons into Pkm Card
 
 //getFrontPicture --> async function?!

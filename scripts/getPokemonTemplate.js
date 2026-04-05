@@ -7,7 +7,8 @@ function getPokemonTemplate(currentPokemon, index) {
         <div class="bg_${currentPokemon.types[0].type.name} center">
             <img src = "${getFrontPicture(currentPokemon)}" class="pkm_img">
         </div>
-        <div id="type">
+        <div id="type" class="type_container">
+        ${getTypesTemplate(index)}
         </div>
     </div>`
 }
