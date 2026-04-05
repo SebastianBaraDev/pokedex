@@ -35,7 +35,7 @@
         <div id="dialog_background">
                 
         <header class="DialogHeader">
-            <h2 id="dialog_title">ygbndgn</h2>
+            <h2 id="dialog_title"></h2>
             <img src="./assets/icons/close.png" class="DialogExit" onclick="closeDialog()" onkeydown="tabindexCloseDialog(event)">
         </header>
 
@@ -44,9 +44,9 @@
         </section>
 
         <section class="card_menu">
-            <button class="dialog_btn" onclick="renderPkmCardInfos(main)">Main</button>
-            <button class="dialog_btn" onclick="renderPkmCardInfos(stats)">Stats</button>
-            <button class="dialog_btn" onclick="renderPkmCardInfos(evo)">Evo-Chain</button>
+            <button class="dialog_btn" onclick="renderPkmCardInfos('main', currentIndex)">Main</button>
+            <button class="dialog_btn" onclick="renderPkmCardInfos('stats', currentIndex)">Stats</button>
+            <button class="dialog_btn" onclick="renderPkmCardInfos('evo', currentIndex)">Evo-Chain</button>
         </section>
 
         <section id="card_content">

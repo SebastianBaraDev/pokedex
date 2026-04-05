@@ -1,11 +1,11 @@
-function getPokemonTemplate(pkmDataIndex) {
+function getPokemonTemplate(currentPokemon, index) {
     return `
-    <div class="PokemonWidget" onclick="openDialog()">
+    <div class="PokemonWidget" onclick="openDialog(${index})">
         <div class="cardHeadline">
-            <h1>#${pokemonData[pkmDataIndex].id}  ${pokemonData[pkmDataIndex].name}</h1>
+            <h1>#${currentPokemon.id}  ${currentPokemon.name}</h1>
         </div>
-        <div class="bg_${pokemonData[pkmDataIndex].types[0].type.name} center">
-            <img src = "${getFrontPicture(pokemonData[pkmDataIndex])}" class="pkm_img">
+        <div class="bg_${currentPokemon.types[0].type.name} center">
+            <img src = "${getFrontPicture(currentPokemon)}" class="pkm_img">
         </div>
         <div id="type">
         </div>

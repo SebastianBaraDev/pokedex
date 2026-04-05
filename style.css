@@ -126,8 +126,15 @@ footer {
 }
 
 #pkm_picture {
-    width: 312px;
-    height: 180px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.dialog_img {
+    display: flex;
+    justify-content: center;
+    width: 240px;
 }
 
 .dialog_btn {
@@ -153,7 +160,8 @@ footer {
 #card_content {
     width: 300px;
     height: 180px;
-    margin: auto;
+    line-height: 32px;
+    padding: 0 32px;
 }
 
 .DialogNav {
