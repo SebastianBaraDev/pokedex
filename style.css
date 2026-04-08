@@ -112,7 +112,7 @@ footer {
 .DialogHeader {
     display: flex;
     justify-content: space-between;
-    padding: 8px;
+    padding: 8px 8px 0 8px;
 }
 
 #dialog_title {
@@ -135,16 +135,14 @@ footer {
 .dialog_img {
     display: flex;
     justify-content: center;
-    width: 240px;
+    width: 200px;
 }
 
 .dialog_btn {
     width: 80px;
-    border: solid 0 0 1px 0 blanchedalmond;
     height: 32px;
     background-color: #05171E;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     cursor: pointer;
 }
 
@@ -170,7 +168,12 @@ footer {
     justify-content: space-between;
     width: 260px;
     margin: auto;
-    padding: 8px;
+    padding: 16px 8px;
+}
+
+.DialogNav img {
+    width: 48px;
+    height: 48px;
 }
 
 .DialogNav img:hover {
@@ -183,9 +186,16 @@ footer {
     justify-content: center;
     gap: 10px;
     margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .type_icon {
     width: 36px;
     height: 36px;
+}
+
+.dialog_stat {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
 }

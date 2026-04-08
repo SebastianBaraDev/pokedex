@@ -1,3 +1,13 @@
+function getTypeImages(index) {
+    return `
+        <img src="${pokemonData[index].sprites.other.home.front_default}" class="dialog_img">
+        
+        <div class="type_container">
+            ${getTypesTemplate(index)}
+        </div>
+    `;
+}
+
 function getMainTemplate(index) {
     const currentPokemon = pokemonData[index];
     return `<div>
@@ -13,7 +23,7 @@ function getStatsTemplate(index) {
     for (let i = 0; i < currentPokemon.stats.length; i++) {
         const statName = currentPokemon.stats[i].stat.name;
         const statValue = currentPokemon.stats[i].base_stat;
-        html += `<div class="">${statName}: ${statValue}</div>`;
+        html += `<div class="dialog_stat">${statName}: <div>${statValue}</div></div>`;
     }
     return html;
 }
@@ -36,14 +46,4 @@ function getEvoChainTemplate(index) {
         html = "<div class=''>No evolution chain available.</div>";
     }
     return html;
-}
-
-function getTypeImages(index) {
-    return `
-        <img src="${pokemonData[index].sprites.other.home.front_default}" class="dialog_img">
-        
-        <div class="type_container">
-            ${getTypesTemplate(index)}
-        </div>
-    `;
 }

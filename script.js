@@ -160,7 +160,19 @@ function renderPkmCardInfos(id) {
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
 //Event Bubbling on Dialog
+// Referenzen auf Elemente
+const dialog = document.getElementById('img_dialog');
+const background = document.getElementById('dialog_background');
 
+// Klick auf Hintergrund schließt Dialog
+dialog.onclick = function () {
+    closeDialog();
+};
+
+// Klick im Dialog selbst soll das Schließen verhindern
+background.onclick = function (event) {
+    event.stopPropagation();
+};
 //Search Function
 
 //getFrontPicture --> async function?!
