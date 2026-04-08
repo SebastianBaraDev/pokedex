@@ -199,3 +199,8 @@ footer {
     justify-content: space-between;
     padding-right: 20px;
 }
+
+#search_input {
+    color: black;
+    padding: 4px;
+}

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./styles/font.css">
     <link rel="stylesheet" href="./styles/pokemonTemplate.css">
     
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
     <script src="./scripts/getPokemonTemplate.js"></script>
     <script src="./scripts/dialog_templates.js"></script>
 </head>
@@ -22,13 +22,13 @@
               <img src="./assets/img/pokeball.png">
               <h1>Pokedex</h1>
             </div>
-          <input type="text">
+          <input type="text" id="search_input" placeholder="Search Pokemon..." minlength="3" oninput="searchPkm()">
         </div>
     </nav>
 
     <main>
         <div class="wrapper" id="content"></div>
-        <button onclick="bulkLoadNextPokemon()" class="btn bg_blue">Load more</button>
+        <button onclick="bulkLoadNextPokemon()" class="btn bg_blue" id="loadMoreBtn">Load more</button>
     </main>
 
     <dialog id="pokemon_card">

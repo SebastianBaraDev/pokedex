@@ -157,22 +157,61 @@ function renderPkmCardInfos(id) {
         }
         contentRef.innerHTML = content;
 }
-////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////
+
 //Event Bubbling on Dialog
-// Referenzen auf Elemente
-const dialog = document.getElementById('img_dialog');
+const dialog = document.getElementById("pokemon_card");
 const background = document.getElementById('dialog_background');
 
-// Klick auf Hintergrund schließt Dialog
 dialog.onclick = function () {
     closeDialog();
-};
+}
 
-// Klick im Dialog selbst soll das Schließen verhindern
 background.onclick = function (event) {
     event.stopPropagation();
-};
+}
+
 //Search Function
+function getSearchValue() {
+    return document.getElementById("search_input").value.toLowerCase().trim();
+}
+
+function resetView() {
+    renderPokemonCards();
+    toggleLoadMore(true);
+}
+
+function toggleLoadMore(show) {
+    const btn = document.getElementById("loadMoreBtn");
+    btn.style.display = show ? "block" : "none";
+}
+
+function filterPokemon(value) {
+    return pokemonData.filter(pokemon =>
+        pokemon.name.toLowerCase().includes(value)
+    );
+}
+
+function renderSearchResults(results) {
+    const contentRef = document.getElementById("content");
+    contentRef.innerHTML = "";
+
+    results.forEach(pokemon => {
+        let index = pokemonData.indexOf(pokemon);
+        contentRef.innerHTML += getPokemonTemplate(pokemon, index);
+    });
+}
+
+function searchPkm() {
+    const value = getSearchValue();
+
+    if (value.length === 0) return resetView();
+    if (value.length < 3) return;
+
+    const results = filterPokemon(value);
+
+    toggleLoadMore(false);
+    renderSearchResults(results);
+}
+
 
 //getFrontPicture --> async function?!
