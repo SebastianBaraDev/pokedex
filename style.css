@@ -1,3 +1,10 @@
+@media (max-width: 550px) {
+    .flex_nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -49,6 +56,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
 }
 
 .flex_footer {
@@ -82,8 +90,28 @@ footer {
     transform: scale(1.2);
 }
 
+.searchBar {
+    display: flex;
+    align-items: center;
+}
+
+.searchBar button {
+    width: 100px;
+    height: 28px;
+    background-color: #05171E;
+    cursor: pointer;
+}
+
+.searchBar button:hover {
+    color: red;
+}
+
 .bg_blue {
     background: #082029;
+}
+
+.hidden {
+    display: none;
 }
 
 /* --- Dialog Styling --- */
@@ -103,6 +131,7 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    min-width: 320px;
 }
 
 #pokemon_card::backdrop {

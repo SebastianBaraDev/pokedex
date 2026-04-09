@@ -22,12 +22,17 @@
               <img src="./assets/img/pokeball.png">
               <h1>Pokedex</h1>
             </div>
-          <input type="text" id="search_input" placeholder="Search Pokemon..." minlength="3" oninput="searchPkm()">
+            <div class="searchBar">
+              <input type="text" id="search_input" placeholder="Search Pokemon..." oninput="resetViewIfInputEmpty()">
+              <button onclick="searchPkm()">Search</button>
+            </div>
         </div>
     </nav>
 
     <main>
-        <div class="wrapper" id="content"></div>
+        <div class="wrapper" id="content">
+            <img src="./assets/img/loading_spinner.gif" id="loadingSpinner" class="hidden">
+        </div>
         <button onclick="bulkLoadNextPokemon()" class="btn bg_blue" id="loadMoreBtn">Load more</button>
     </main>
 

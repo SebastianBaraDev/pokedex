@@ -15,6 +15,9 @@
     cursor: pointer;
 }
 
+.PokemonWidget:hover {
+box-shadow: 0 0 10px white;}
+
 .bg_grass {
     background-color: #31a41b;
     width: 300px;

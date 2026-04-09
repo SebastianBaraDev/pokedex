@@ -43,6 +43,8 @@ async function bulkLoadPokemon() {
 //Load next 20 Pokemon --> Button//
 
 async function bulkLoadNextPokemon() {
+    showLoadingSpinner();
+
     let end = START + LIMIT - 1;
     for (let id = START; id <= end; id++) {
         const currentPokemon = await loadPokemonData(id);
@@ -50,8 +52,21 @@ async function bulkLoadNextPokemon() {
         }
     START += LIMIT;
     renderPokemonCards();
+    showLoadMoreBtn();
 }
 
+function showLoadingSpinner() {
+    const button = document.getElementById("loadMoreBtn");
+    button.classList.add("hidden");
+
+    const spinner = document.getElementById("content");
+    spinner.innerHTML = '<img src="./assets/img/loading_spinner.gif" id="loadingSpinner">';
+}
+
+function showLoadMoreBtn() {
+    const button = document.getElementById("loadMoreBtn");
+    button.classList.remove("hidden");
+}
 //Render Pokemon Cards into Content Container//
 
 function renderPokemonCards() {
@@ -158,7 +173,7 @@ function renderPkmCardInfos(id) {
         contentRef.innerHTML = content;
 }
 
-//Event Bubbling on Dialog
+//Event Bubbling on Dialog//
 const dialog = document.getElementById("pokemon_card");
 const background = document.getElementById('dialog_background');
 
@@ -170,7 +185,7 @@ background.onclick = function (event) {
     event.stopPropagation();
 }
 
-//Search Function
+//Search Function//
 function getSearchValue() {
     return document.getElementById("search_input").value.toLowerCase().trim();
 }
@@ -195,6 +210,11 @@ function renderSearchResults(results) {
     const contentRef = document.getElementById("content");
     contentRef.innerHTML = "";
 
+    if (results.length === 0) {
+        contentRef.innerHTML = "<p>No Pokemon found. Try again.</p>";
+        return;
+    }
+
     results.forEach(pokemon => {
         let index = pokemonData.indexOf(pokemon);
         contentRef.innerHTML += getPokemonTemplate(pokemon, index);
@@ -213,5 +233,9 @@ function searchPkm() {
     renderSearchResults(results);
 }
 
-
-//getFrontPicture --> async function?!
+function resetViewIfInputEmpty() {
+    const value = getSearchValue();
+    if (value.length < 3) {
+        resetView();
+    }
+}
