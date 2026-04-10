@@ -1,7 +1,9 @@
 function getTypeImages(index) {
     return `
+        <div class="bg_${pokemonData[index].types[0].type.name} center">
         <img src="${pokemonData[index].sprites.other.home.front_default}" class="dialog_img">
-        
+        </div>
+
         <div class="type_container">
             ${getTypesTemplate(index)}
         </div>
@@ -10,11 +12,15 @@ function getTypeImages(index) {
 
 function getMainTemplate(index) {
     const currentPokemon = pokemonData[index];
-    return `<div>
-        <div class="">Height: ${currentPokemon.height}</div>
-        <div class="">Weight: ${currentPokemon.weight}</div>
-        <div class="">Base Experience: ${currentPokemon.base_experience}</div>
-    </div>`    
+    let html = "";
+        html = `<div>
+        <div class="dialog_main"><p>Height:</p> <p>${currentPokemon.height}</p></div>
+        <div class="dialog_main"><p>Weight:</p> <p>${currentPokemon.weight}</p></div>
+        <div class="dialog_main"><p>Base Experience:</p> <p>${currentPokemon.base_experience}</p></div>
+    </div>`
+    return html;   
+    
+    
 }
 
 function getStatsTemplate(index) {
@@ -28,22 +34,17 @@ function getStatsTemplate(index) {
     return html;
 }
 
-function getEvoChainTemplate(index) {
-    const currentPokemon = pokemonData[index];
+function getEvoChainTemplate(evoList) {
     let html = "";
-    if (currentPokemon.evolution_chain) {
-        const evoChain = currentPokemon.evolution_chain.chain;
-        html += `<div class="">${evoChain.species.name}</div>`;
-        if (evoChain.evolves_to.length > 0) {
-            const firstEvo = evoChain.evolves_to[0];
-            html += `<div class="">${firstEvo.species.name}</div>`;
-            if (firstEvo.evolves_to.length > 0) {
-                const secondEvo = firstEvo.evolves_to[0];
-                html += `<div class="">${secondEvo.species.name}</div>`;
-            }
+    for (let i = 0; i < evoList.length; i++) {
+        html += `<div class="evo-item">
+                    <img src="${evoList[i].image}" alt="${evoList[i].name}">
+                    <span>${evoList[i].name}</span>
+                 </div>`;
+
+        if (i < evoList.length - 1) {
+            html += `<img src="./assets/icons/arrow.png" alt="Arrow" class="arrow">`;
         }
-    } else {
-        html = "<div class=''>No evolution chain available.</div>";
     }
-    return html;
+    return `<div class="evo-chain">${html}</div>`;
 }

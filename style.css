@@ -121,7 +121,7 @@ footer {
 }
 
 #dialog_background {
-    width: 312px;
+    width: 100%;
 }
 
 #pokemon_card {
@@ -189,7 +189,7 @@ footer {
     width: 300px;
     height: 180px;
     line-height: 32px;
-    padding: 0 32px;
+    padding-left: 16px;
 }
 
 .DialogNav {
@@ -229,7 +229,35 @@ footer {
     padding-right: 20px;
 }
 
+.dialog_main {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
 #search_input {
     color: black;
     padding: 4px;
+}
+
+.evo-chain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.evo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.evo-item img {
+    width: 60px;
+}
+
+.arrow {
+    width: 8px;
+    height: 16px;
 }

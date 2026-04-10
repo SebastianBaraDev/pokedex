@@ -1,5 +1,6 @@
 let pokemon = [];
 let pokemonData = [];
+let evoChainData = [];
 let currentIndex = 0;
 let START = 21;
 let LIMIT = 20;
@@ -40,6 +41,58 @@ async function bulkLoadPokemon() {
     renderPokemonCards();
 }
 
+async function loadEvoChainData(id) {
+    let speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${id +1}/`;
+    let speciesResponse = await fetch(speciesUrl);
+    let speciesData = await speciesResponse.json();
+    
+    let evoChainUrl = speciesData.evolution_chain.url;
+
+    let evoChainResponse = await fetch(evoChainUrl);
+    let evoChainData = await evoChainResponse.json();
+
+    return evoChainData;
+}
+
+function getEvoNames(chain) {
+    let result = [];
+
+    function goThrough(node) {
+        result.push(node.species.name);
+
+        for (let i = 0; i < node.evolves_to.length; i++) {
+            goThrough(node.evolves_to[i]);
+        }
+    }
+
+    goThrough(chain);
+    return result;
+}
+
+async function loadPokemonDetailsByName(name) {
+    let url = `https://pokeapi.co/api/v2/pokemon/${name}`;
+    let response = await fetch(url);
+    let data = await response.json();
+
+    return {
+        name: data.name,
+        image: data.sprites.other['official-artwork'].front_default
+    };
+}
+
+async function getEvoChainWithImages(id) {
+    let evoData = await loadEvoChainData(id);
+    let names = getEvoNames(evoData.chain);
+    let result = [];
+
+    for (let i = 0; i < Math.min(3, names.length); i++) {
+        let details = await loadPokemonDetailsByName(names[i]);
+        result.push(details);
+    }
+
+    return result;
+}
+
 //Load next 20 Pokemon --> Button//
 
 async function bulkLoadNextPokemon() {
@@ -67,6 +120,7 @@ function showLoadMoreBtn() {
     const button = document.getElementById("loadMoreBtn");
     button.classList.remove("hidden");
 }
+
 //Render Pokemon Cards into Content Container//
 
 function renderPokemonCards() {
@@ -103,6 +157,7 @@ function getTypesTemplate(index) {
 }
 
 //Dialog Functions//
+
 function openDialog(index) {
     currentIndex = index;
     let dialogRef = document.getElementById("pokemon_card");
@@ -156,7 +211,7 @@ function navBackward() {
     renderPkmCardInfos('main');
 }
 
-function renderPkmCardInfos(id) {
+async function renderPkmCardInfos(id) {
         let contentRef = document.getElementById("card_content");
         let content = "";
         switch (id) {
@@ -167,13 +222,23 @@ function renderPkmCardInfos(id) {
                 content = getStatsTemplate(currentIndex);
                 break;
             case "evo":
-                content = getEvoChainTemplate(currentIndex);
+                 contentRef.innerHTML = "Lade Evolution...";
+                let evoList = await getEvoChainWithImages(currentIndex);
+                content = getEvoChainTemplate(evoList);
                 break;
-        }
+        }   
         contentRef.innerHTML = content;
 }
 
+async function renderEvoChain(id, containerId) {
+    let evoList = await getEvoChainWithImages(id);
+
+    let container = document.getElementById(content);
+    container.innerHTML = getEvoChainTemplate(evoList);
+}
+
 //Event Bubbling on Dialog//
+
 const dialog = document.getElementById("pokemon_card");
 const background = document.getElementById('dialog_background');
 
@@ -186,6 +251,7 @@ background.onclick = function (event) {
 }
 
 //Search Function//
+
 function getSearchValue() {
     return document.getElementById("search_input").value.toLowerCase().trim();
 }
